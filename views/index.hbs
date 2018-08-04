@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="row">
+            <h2>Add User</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <!--form start-->
+            <form class="form-horizontal" method="post" action="/addUser">
+                <!--first name division-->
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">First Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputEmail3" placeholder="First Name" name="fname">
+                    </div>
+                </div>
+                <!--last name division-->
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Last Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputEmail3" placeholder="Last Name" name="lname">
+                    </div>
+                </div>
+                <!--email division-->
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputEmail3" placeholder="Email" name="email">
+                    </div>
+                </div>
+                <!--profession division-->
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">Profession</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputPassword3" placeholder="EnterProffesion" name="prof">
+                    </div>
+                </div>
+
+                <!--button division-->
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-success" id="adduser">Add User</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <h2>User table</h2>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <!--user table starts here-->
+            <table class="table table-borderless">
+                <thead>
+                    <tr>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Profession</th>
+                    <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    {{#each users}}
+                    <tr>
+                        <td>{{this.fname}}</td>
+                        <td>{{this.lname}}</td>
+                        <td>{{this.email}}</td>
+                        <td>{{this.prof}}</td>
+                        <td>
+                            <a href="/edit/{{this.id}}">
+                                <button class="btn btn-primary">Edit</button>
+                            </a>
+                            <a href="/deleteUser/{{this.id}}">
+                                <button class="btn btn-primary">Delete</button>
+                            </a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                    
+                </tbody>
+                </table>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
